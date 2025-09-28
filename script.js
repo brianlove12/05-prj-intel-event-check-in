@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Exploding confetti from center (reduced count)
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 10; i++) {
       const angle = Math.random() * 2 * Math.PI;
       const distance = 200 + Math.random() * 400;
       const confetti = document.createElement("div");
@@ -150,13 +150,15 @@ document.addEventListener("DOMContentLoaded", function () {
       confetti.style.top = centerY + "px";
       confetti.style.width = 8 + Math.random() * 8 + "px";
       confetti.style.height = 16 + Math.random() * 12 + "px";
-      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      confetti.style.backgroundColor =
+        colors[Math.floor(Math.random() * colors.length)];
       confetti.style.opacity = 0.8;
       confetti.style.borderRadius = Math.random() > 0.5 ? "50%" : "2px";
       confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
       confetti.style.zIndex = "9999";
       confetti.style.pointerEvents = "none";
-      confetti.style.transition = "top 1.2s ease-out, left 1.2s ease-out, transform 1.2s linear";
+      confetti.style.transition =
+        "top 1.2s ease-out, left 1.2s ease-out, transform 1.2s linear";
       document.body.appendChild(confetti);
       setTimeout(function () {
         confetti.style.top = centerY + Math.sin(angle) * distance + "px";
@@ -170,7 +172,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const angle = Math.random() * 2 * Math.PI;
       const distance = 200 + Math.random() * 400;
       const emojiConfetti = document.createElement("span");
-      emojiConfetti.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      emojiConfetti.textContent =
+        emojis[Math.floor(Math.random() * emojis.length)];
       emojiConfetti.style.position = "fixed";
       emojiConfetti.style.left = centerX + "px";
       emojiConfetti.style.top = centerY + "px";
@@ -187,20 +190,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Cascading confetti from top (reduced count)
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 10; i++) {
       const confetti = document.createElement("div");
       confetti.style.position = "fixed";
       confetti.style.left = Math.random() * 100 + "vw";
       confetti.style.top = "-10vh";
       confetti.style.width = 8 + Math.random() * 8 + "px";
       confetti.style.height = 16 + Math.random() * 12 + "px";
-      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      confetti.style.backgroundColor =
+        colors[Math.floor(Math.random() * colors.length)];
       confetti.style.opacity = 0.8;
       confetti.style.borderRadius = Math.random() > 0.5 ? "50%" : "2px";
       confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
       confetti.style.zIndex = "9999";
       confetti.style.pointerEvents = "none";
-      confetti.style.transition = "top 2.0s linear, left 2.0s linear, transform 2.0s linear";
+      confetti.style.transition =
+        "top 2.0s linear, left 2.0s linear, transform 2.0s linear";
       document.body.appendChild(confetti);
       setTimeout(function () {
         confetti.style.top = 80 + Math.random() * 15 + "vh";
@@ -212,7 +217,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Cascading emoji confetti (reduced count)
     for (let i = 0; i < 10; i++) {
       const emojiConfetti = document.createElement("span");
-      emojiConfetti.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      emojiConfetti.textContent =
+        emojis[Math.floor(Math.random() * emojis.length)];
       emojiConfetti.style.position = "fixed";
       emojiConfetti.style.left = Math.random() * 100 + "vw";
       emojiConfetti.style.top = "-10vh";
