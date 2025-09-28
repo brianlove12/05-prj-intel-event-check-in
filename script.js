@@ -4,14 +4,27 @@ document.addEventListener("DOMContentLoaded", function () {
   const teamSelect = document.getElementById("teamSelect");
 
   // Track Attendance
-  let count = 0;
   const maxCount = 10; // Maximum number of attendees
   const attendeeList = [];
 
-  // Track team counts
-  let waterCount = 0;
-  let zeroCount = 0;
-  let powerCount = 0;
+  // Load counts from localStorage or start at 0
+  let count = parseInt(localStorage.getItem("attendeeCount")) || 0;
+  let waterCount = parseInt(localStorage.getItem("waterCount")) || 0;
+  let zeroCount = parseInt(localStorage.getItem("zeroCount")) || 0;
+  let powerCount = parseInt(localStorage.getItem("powerCount")) || 0;
+
+  // Update UI with loaded counts
+  const attendeeCountElem = document.getElementById("attendeeCount");
+  if (attendeeCountElem) {
+    attendeeCountElem.textContent = count;
+  }
+  document.getElementById("waterCount").textContent = waterCount;
+  document.getElementById("zeroCount").textContent = zeroCount;
+  document.getElementById("powerCount").textContent = powerCount;
+  const progressBar = document.getElementById("progressBar");
+  if (progressBar) {
+    progressBar.style.width = Math.round((count / maxCount) * 100) + "%";
+  }
 
   // Handle form submission
   form.addEventListener("submit", function (event) {
@@ -47,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Increment Count
     count++;
+    localStorage.setItem("attendeeCount", count);
     console.log(`Total check-ins: ${count}`);
 
     // Update total attendee count in the UI
@@ -65,12 +79,15 @@ document.addEventListener("DOMContentLoaded", function () {
     // Update Team Counter
     if (team === "water") {
       waterCount++;
+      localStorage.setItem("waterCount", waterCount);
       document.getElementById("waterCount").textContent = waterCount;
     } else if (team === "zero") {
       zeroCount++;
+      localStorage.setItem("zeroCount", zeroCount);
       document.getElementById("zeroCount").textContent = zeroCount;
     } else if (team === "power") {
       powerCount++;
+      localStorage.setItem("powerCount", powerCount);
       document.getElementById("powerCount").textContent = powerCount;
     }
     console.log(
